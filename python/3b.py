@@ -1,4 +1,4 @@
-file = open("3.txt")
+file = open("../3.txt")
 
 def n_to_priority(n: int) -> int:
     if n >= 97:

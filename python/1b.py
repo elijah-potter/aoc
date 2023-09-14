@@ -1,4 +1,4 @@
-file = open("1.txt")
+file = open("../1.txt")
 
 # Reads from the file line-by line, parsing numbers to evaluate elf inventories 
 # Returns an empty list when "DONE" is encountered.

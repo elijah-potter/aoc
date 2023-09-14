@@ -1,4 +1,4 @@
-file = open("4.txt")
+file = open("../4.txt")
 
 def is_num_in_range(min: int, max:int, num: int) -> bool:
     return num >= min and num <= max

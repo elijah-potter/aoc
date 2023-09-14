@@ -1,4 +1,4 @@
-file = open("4.txt")
+file = open("../4.txt")
 
 def process_line(line: str) -> bool:
     elves_raw = line.split(",")

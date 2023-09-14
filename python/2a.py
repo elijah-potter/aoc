@@ -1,6 +1,6 @@
 from enum import IntEnum
 
-file = open("2.txt")
+file = open("../2.txt")
 
 class Move(IntEnum):
     Rock = 1,
@@ -23,17 +23,6 @@ def char_to_move(char: str) -> Move:
         case _:
             exit(1)
 
-def char_to_outcome(char: str) -> Outcome: 
-    match char.upper():
-        case "A" | "X":
-            return Outcome.Lose
-        case "B" | "Y":
-            return Outcome.Draw
-        case "C" | "Z":
-            return Outcome.Win
-        case _:
-            exit(1)
-
 def calc_outcome(move_a: Move, move_b: Move) -> Outcome:
     if move_a == move_b:
         return Outcome.Draw
@@ -46,20 +35,10 @@ def calc_outcome(move_a: Move, move_b: Move) -> Outcome:
 
     return Outcome.Win
 
-def match_move_to_outcome(move_a: Move, outcome: Outcome) -> Move:
-    if outcome == Outcome.Draw:
-        return move_a
-
-    if outcome == Outcome.Win:
-        return Move(move_a  % 3 + 1)
-
-    return Move((move_a + 1) % 3 + 1)
-
 def calc_score(move_a: Move, move_b: Move) -> int:
     outcome = calc_outcome(move_a, move_b)
 
     return move_b + outcome
-
 
 total = 0
 
@@ -70,8 +49,6 @@ while True:
         exit()
     
     move_a = char_to_move(line[0])
-    outcome = char_to_outcome(line[2])
-    move_b = match_move_to_outcome(move_a, outcome)
+    move_b = char_to_move(line[2])
     
     total += calc_score(move_a, move_b)
-
