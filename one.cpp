@@ -1,6 +1,7 @@
 #include <cassert>
 #include <cctype>
 #include <cstdio>
+#include <fstream>
 #include <iostream>
 #include <optional>
 #include <string>
@@ -34,11 +35,13 @@ optional<char> lastNum(const string *line) {
 }
 
 void one() {
-  string data;
+  ifstream sourcefile;
+  sourcefile.open("one.txt");
 
+  string data;
   size_t total = 0;
 
-  while (!getline(cin, data).eof()) {
+  while (!getline(sourcefile, data).eof()) {
     assert(data.length() > 0);
 
     string strnum;
@@ -54,4 +57,6 @@ void one() {
   }
 
   cout << total << endl;
+
+  sourcefile.close();
 }
